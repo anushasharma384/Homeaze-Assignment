@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "533686530928",
+    "project_id": "homeaze-assignment",
+    "storage_bucket": "homeaze-assignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533686530928:android:e27f4dfe45a731e3bcd5b5",
+        "android_client_info": {
+          "package_name": "com.example.assignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533686530928-sq5f0pg6h59juu0kc5lpjnhlvo7b9jbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADM8hTZP5fzUV8Wlrvs2Blu4CRtJJ2opQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533686530928-sq5f0pg6h59juu0kc5lpjnhlvo7b9jbc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
