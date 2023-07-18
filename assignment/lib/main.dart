@@ -30,6 +30,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void _showTimePicker() {
+    showTimePicker(context: context, initialTime: TimeOfDay.now())
+        .then((value) {
+      setState(() {
+        _timeOfDay = value!;
+      });
+    });
+  }
+
+  TimeOfDay _timeOfDay = TimeOfDay(hour: 8, minute: 30);
+
   int _value = 1;
   bool mon = false;
   bool tues = false;
@@ -64,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.white,
             ),
             Container(
-              margin: EdgeInsets.only(left: 20, top: 20, bottom: 10),
+              margin: EdgeInsets.only(left: 20, top: 20),
               child: Row(
                 children: [
                   Text(
@@ -189,7 +200,186 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            
+            Container(
+              margin: EdgeInsets.only(top: 20, bottom: 15, left: 40, right: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    height: 60,
+                    width: 122,
+                    child: ElevatedButton(
+                        onPressed: _showTimePicker,
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shadowColor: Color.fromRGBO(221, 223, 226, 1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "Opens At ",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromRGBO(191, 191, 192, 1)),
+                                ),
+                                Text(
+                                  "*",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.red),
+                                )
+                              ],
+                            ),
+                            Text(
+                              _timeOfDay.format(context).toString(),
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromRGBO(191, 191, 192, 1)),
+                            )
+                          ],
+                        )),
+                  ),
+                  SizedBox(
+                    height: 60,
+                    width: 122,
+                    child: ElevatedButton(
+                        onPressed: _showTimePicker,
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shadowColor: Color.fromRGBO(221, 223, 226, 1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "Closes At ",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromRGBO(191, 191, 192, 1)),
+                                ),
+                                Text(
+                                  "*",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.red),
+                                )
+                              ],
+                            ),
+                            Text(
+                              _timeOfDay.format(context).toString(),
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromRGBO(191, 191, 192, 1)),
+                            )
+                          ],
+                        )),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 20, bottom: 15, left: 40, right: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    height: 60,
+                    width: 122,
+                    child: ElevatedButton(
+                        onPressed: _showTimePicker,
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shadowColor: Color.fromRGBO(221, 223, 226, 1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "Opens At ",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromRGBO(191, 191, 192, 1)),
+                                ),
+                                Text(
+                                  "*",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.red),
+                                )
+                              ],
+                            ),
+                            Text(
+                              _timeOfDay.format(context).toString(),
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromRGBO(191, 191, 192, 1)),
+                            )
+                          ],
+                        )),
+                  ),
+                  SizedBox(
+                    height: 60,
+                    width: 122,
+                    child: ElevatedButton(
+                        onPressed: _showTimePicker,
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shadowColor: Color.fromRGBO(221, 223, 226, 1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "Closes At ",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromRGBO(191, 191, 192, 1)),
+                                ),
+                                Text(
+                                  "*",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.red),
+                                )
+                              ],
+                            ),
+                            Text(
+                              _timeOfDay.format(context).toString(),
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromRGBO(191, 191, 192, 1)),
+                            )
+                          ],
+                        )),
+                  ),
+                ],
+              ),
+            ),
             Container(
               margin: EdgeInsets.only(left: 20, top: 20),
               child: Row(
@@ -230,156 +420,149 @@ class _MyHomePageState extends State<MyHomePage> {
                   Row(
                     children: [
                       Checkbox(
-                    value: mon,
-                    onChanged: (value) {
-                      setState(() {
-                        mon = value!;
-                      });
-                    },
-                    activeColor: Color.fromRGBO(7, 147, 197, 1),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                      "Monday",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black
-                    ),
-                  ),
-                 ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(
-                    value: tues,
-                    onChanged: (value) {
-                      setState(() {
-                        tues = value!;
-                      });
-                    },
-                    activeColor: Color.fromRGBO(7, 147, 197, 1),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                      "Tuesday",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black
-                    ),
-                  ),
-                 ],
+                        value: mon,
+                        onChanged: (value) {
+                          setState(() {
+                            mon = value!;
+                          });
+                        },
+                        activeColor: Color.fromRGBO(7, 147, 197, 1),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "Monday",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ],
                   ),
                   Row(
                     children: [
                       Checkbox(
-                    value: wed,
-                    onChanged: (value) {
-                      setState(() {
-                        wed = value!;
-                      });
-                    },
-                    activeColor: Color.fromRGBO(7, 147, 197, 1),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                      "Wednesday",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black
-                    ),
-                  ),
-                 ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(
-                    value: thu,
-                    onChanged: (value) {
-                      setState(() {
-                        thu = value!;
-                      });
-                    },
-                    activeColor: Color.fromRGBO(7, 147, 197, 1),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                      "Thursday",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black
-                    ),
-                  ),
-                 ],
+                        value: tues,
+                        onChanged: (value) {
+                          setState(() {
+                            tues = value!;
+                          });
+                        },
+                        activeColor: Color.fromRGBO(7, 147, 197, 1),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "Tuesday",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ],
                   ),
                   Row(
                     children: [
                       Checkbox(
-                    value: fri,
-                    onChanged: (value) {
-                      setState(() {
-                        fri = value!;
-                      });
-                    },
-                    activeColor: Color.fromRGBO(7, 147, 197, 1),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                      "Friday",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black
-                    ),
-                  ),
-                 ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(
-                    value: sat,
-                    onChanged: (value) {
-                      setState(() {
-                        sat = value!;
-                      });
-                    },
-                    activeColor: Color.fromRGBO(7, 147, 197, 1),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                      "Saturday",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black
-                    ),
-                  ),
-                 ],
+                        value: wed,
+                        onChanged: (value) {
+                          setState(() {
+                            wed = value!;
+                          });
+                        },
+                        activeColor: Color.fromRGBO(7, 147, 197, 1),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "Wednesday",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ],
                   ),
                   Row(
                     children: [
                       Checkbox(
-                    value: sun,
-                    onChanged: (value) {
-                      setState(() {
-                        sun = value!;
-                      });
-                    },
-                    activeColor: Color.fromRGBO(7, 147, 197, 1),
+                        value: thu,
+                        onChanged: (value) {
+                          setState(() {
+                            thu = value!;
+                          });
+                        },
+                        activeColor: Color.fromRGBO(7, 147, 197, 1),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "Thursday",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ],
                   ),
-                  SizedBox(width: 10),
-                  Text(
-                      "Sunday",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black
-                    ),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: fri,
+                        onChanged: (value) {
+                          setState(() {
+                            fri = value!;
+                          });
+                        },
+                        activeColor: Color.fromRGBO(7, 147, 197, 1),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "Friday",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ],
                   ),
-                 ],
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: sat,
+                        onChanged: (value) {
+                          setState(() {
+                            sat = value!;
+                          });
+                        },
+                        activeColor: Color.fromRGBO(7, 147, 197, 1),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "Saturday",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: sun,
+                        onChanged: (value) {
+                          setState(() {
+                            sun = value!;
+                          });
+                        },
+                        activeColor: Color.fromRGBO(7, 147, 197, 1),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "Sunday",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ],
                   )
                 ],
               ),
@@ -403,7 +586,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             SizedBox(
-              height: height*0.1,
+              height: height * 0.1,
               width: double.infinity,
             )
           ],
