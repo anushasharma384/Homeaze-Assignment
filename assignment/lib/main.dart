@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -30,16 +34,46 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _showTimePicker() {
+  void _showTimePicker1() {
     showTimePicker(context: context, initialTime: TimeOfDay.now())
         .then((value) {
       setState(() {
-        _timeOfDay = value!;
+        _timeOfDay1 = value!;
       });
     });
   }
 
-  TimeOfDay _timeOfDay = TimeOfDay(hour: 8, minute: 30);
+  void _showTimePicker2() {
+    showTimePicker(context: context, initialTime: TimeOfDay.now())
+        .then((value) {
+      setState(() {
+        _timeOfDay2 = value!;
+      });
+    });
+  }
+
+  void _showTimePicker3() {
+    showTimePicker(context: context, initialTime: TimeOfDay.now())
+        .then((value) {
+      setState(() {
+        _timeOfDay3 = value!;
+      });
+    });
+  }
+
+  void _showTimePicker4() {
+    showTimePicker(context: context, initialTime: TimeOfDay.now())
+        .then((value) {
+      setState(() {
+        _timeOfDay4 = value!;
+      });
+    });
+  }
+
+  TimeOfDay _timeOfDay1 = TimeOfDay(hour: 8, minute: 30);
+  TimeOfDay _timeOfDay2 = TimeOfDay(hour: 2, minute: 30);
+  TimeOfDay _timeOfDay3 = TimeOfDay(hour: 3, minute: 30);
+  TimeOfDay _timeOfDay4 = TimeOfDay(hour: 4, minute: 30);
 
   int _value = 1;
   bool mon = false;
@@ -209,7 +243,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 60,
                     width: 122,
                     child: ElevatedButton(
-                        onPressed: _showTimePicker,
+                        onPressed: _showTimePicker1,
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             shadowColor: Color.fromRGBO(221, 223, 226, 1),
@@ -237,7 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ],
                             ),
                             Text(
-                              _timeOfDay.format(context).toString(),
+                              _timeOfDay1.format(context).toString(),
                               style: TextStyle(
                                   fontSize: 10,
                                   fontWeight: FontWeight.w500,
@@ -250,7 +284,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 60,
                     width: 122,
                     child: ElevatedButton(
-                        onPressed: _showTimePicker,
+                        onPressed: _showTimePicker2,
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             shadowColor: Color.fromRGBO(221, 223, 226, 1),
@@ -278,7 +312,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ],
                             ),
                             Text(
-                              _timeOfDay.format(context).toString(),
+                              _timeOfDay2.format(context).toString(),
                               style: TextStyle(
                                   fontSize: 10,
                                   fontWeight: FontWeight.w500,
@@ -299,7 +333,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 60,
                     width: 122,
                     child: ElevatedButton(
-                        onPressed: _showTimePicker,
+                        onPressed: _showTimePicker3,
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             shadowColor: Color.fromRGBO(221, 223, 226, 1),
@@ -327,7 +361,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ],
                             ),
                             Text(
-                              _timeOfDay.format(context).toString(),
+                              _timeOfDay3.format(context).toString(),
                               style: TextStyle(
                                   fontSize: 10,
                                   fontWeight: FontWeight.w500,
@@ -340,7 +374,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 60,
                     width: 122,
                     child: ElevatedButton(
-                        onPressed: _showTimePicker,
+                        onPressed: _showTimePicker4,
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             shadowColor: Color.fromRGBO(221, 223, 226, 1),
@@ -368,7 +402,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ],
                             ),
                             Text(
-                              _timeOfDay.format(context).toString(),
+                              _timeOfDay4.format(context).toString(),
                               style: TextStyle(
                                   fontSize: 10,
                                   fontWeight: FontWeight.w500,
@@ -571,7 +605,23 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 50,
               width: width * 0.85,
               child: ElevatedButton(
-                onPressed: () async {},
+                onPressed: () async{
+                  await FirebaseFirestore.instance.collection('users').add({
+                    'openAt1': _timeOfDay1.toString(),
+                    'openAt2': _timeOfDay3.toString(),
+                    'closeAt1': _timeOfDay2.toString(),
+                    'closeAt2': _timeOfDay4.toString(),
+                    'value': _value,
+                    'mon': mon,
+                    'tue': tues,
+                    'wed': wed,
+                    'thu': thu,
+                    'fri': fri,
+                    'sat': sat,
+                    'sun': sun
+
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 18, 167, 222),
                     shape: RoundedRectangleBorder(
